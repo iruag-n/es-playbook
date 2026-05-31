@@ -1,1 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Seekho — Team Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f4f1;
+  --surface: #ffffff;
+  --border: rgba(0,0,0,0.08);
+  --border2: rgba(0,0,0,0.14);
+  --text: #1a1916;
+  --muted: #6e6b65;
+  --dim: #b0ada6;
+  --blue: #1a6fd4;
+  --blue-soft: rgba(26,111,212,0.08);
+  --blue-border: rgba(26,111,212,0.2);
+  --purple: #6d4fc2;
+  --purple-soft: rgba(109,79,194,0.08);
+  --purple-border: rgba(109,79,194,0.2);
+  --amber: #b87010;
+  --amber-soft: rgba(184,112,16,0.08);
+  --amber-border: rgba(184,112,16,0.2);
+  --teal: #0e8a72;
+  --teal-soft: rgba(14,138,114,0.08);
+  --teal-border: rgba(14,138,114,0.2);
+  --gray: #5a5754;
+  --gray-soft: rgba(90,87,84,0.08);
+  --gray-border: rgba(90,87,84,0.2);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+}
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 14px 68px;
+  background: rgba(246,244,241,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 0.5px solid var(--border);
+}
+.nav-brand { font-size: 11px; color: var(--dim); letter-spacing: 0.05em; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 11px; color: var(--dim); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--text); }
+
+.page { max-width: 1200px; margin: 0 auto; padding: 0 68px; }
+
+/* HERO */
+.hero {
+  min-height: 92vh;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 80px 0 60px;
+}
+.hero-bg {
+  position: absolute; right: -40px; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Instrument Serif', serif;
+  font-size: 320px; line-height: 1;
+  color: rgba(0,0,0,0.028);
+  pointer-events: none; user-select: none;
+}
+.hero-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.4px; color: var(--dim); margin-bottom: 24px; }
+.hero h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 64px; line-height: 1.06;
+  margin-bottom: 24px; max-width: 640px;
+}
+.hero h1 em { font-style: italic; color: var(--blue); }
+.hero-body {
+  font-size: 18px; color: var(--muted);
+  line-height: 1.8; max-width: 500px;
+  margin-bottom: 12px;
+}
+.hero-coda {
+  font-size: 15px; color: var(--dim);
+  font-style: italic; margin-bottom: 40px;
+}
+.tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag { font-size: 12px; padding: 5px 14px; border-radius: 100px; border: 0.5px solid var(--border2); color: var(--muted); background: var(--surface); }
+
+/* SECTIONS */
+.section { padding: 88px 0; border-top: 0.5px solid var(--border); }
+.eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 1.4px; color: var(--dim); margin-bottom: 16px; }
+.slide-h { font-family: 'Instrument Serif', serif; font-size: 40px; line-height: 1.15; margin-bottom: 10px; }
+.slide-sub { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; max-width: 580px; }
+
+/* BUCKETS */
+.buckets { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+.bucket {
+  background: var(--surface); border: 0.5px solid var(--border);
+  border-radius: 12px; padding: 28px 24px;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+.bucket::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.bucket.bg::before { background: var(--blue); }
+.bucket.bp::before { background: var(--purple); }
+.bucket.bc::before { background: var(--teal); }
+.bucket.bb::before { background: var(--amber); }
+.b-num { font-size: 11px; color: var(--dim); margin-bottom: 16px; }
+.b-title { font-family: 'Instrument Serif', serif; font-size: 22px; line-height: 1.2; margin-bottom: 14px; }
+.b-desc { font-size: 14px; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 20px; }
+.b-owner { font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 100px; width: fit-content; }
+.own-g { background: var(--blue-soft); color: var(--blue); }
+.own-gb { background: var(--blue-soft); color: var(--blue); }
+.own-p { background: var(--purple-soft); color: var(--purple); }
+.own-b { background: var(--amber-soft); color: var(--amber); }
+.b-ns-row { margin-top: 16px; padding-top: 16px; border-top: 0.5px solid var(--border); }
+.b-ns-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.7px; color: var(--dim); margin-bottom: 4px; }
+.b-ns-val { font-size: 14px; font-weight: 500; }
+.bucket.bg .b-ns-val { color: var(--blue); }
+.bucket.bp .b-ns-val { color: var(--purple); }
+.bucket.bc .b-ns-val { color: var(--teal); }
+.bucket.bb .b-ns-val { color: var(--amber); }
+
+/* RELAY */
+.principle-box {
+  background: var(--surface); border: 0.5px solid var(--border2);
+  border-radius: 12px; padding: 28px 32px; margin-bottom: 20px;
+}
+.p-chain { display: flex; align-items: center; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 0.5px solid var(--border); }
+.p-item { flex: 1; }
+.p-verb { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--dim); margin-bottom: 6px; }
+.p-who { font-size: 18px; font-weight: 500; }
+.p-arrow { font-size: 20px; color: var(--dim); padding: 0 20px; flex-shrink: 0; }
+.p-note { font-size: 15px; color: var(--muted); line-height: 1.75; }
+.p-note strong { color: var(--text); font-weight: 500; }
+
+.roles-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; }
+.role-card {
+  background: var(--surface); border: 0.5px solid var(--border);
+  border-radius: 10px; padding: 20px 18px;
+  position: relative; overflow: hidden;
+}
+.role-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+.role-card.rg::before { background: var(--blue); }
+.role-card.rb::before { background: var(--amber); }
+.role-card.rp::before { background: var(--purple); }
+.role-card.rc::before { background: var(--teal); }
+.role-card.rt::before { background: var(--gray); }
+.rc-verb { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+.rc-what { font-size: 15px; font-weight: 500; margin-bottom: 10px; line-height: 1.3; }
+.rg .rc-what { color: var(--blue); }
+.rb .rc-what { color: var(--amber); }
+.rp .rc-what { color: var(--purple); }
+.rc .rc-what { color: var(--teal); }
+.rt .rc-what { color: var(--gray); }
+.rc-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* HANDOFFS */
+.handoffs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.hcard {
+  background: var(--surface); border: 0.5px solid var(--border);
+  border-radius: 12px; padding: 28px 30px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.hcard-head { display: flex; align-items: center; gap: 10px; }
+.hcard-from { font-size: 17px; font-weight: 500; }
+.hcard-arrow { color: var(--dim); font-size: 16px; }
+.hcard-to { font-size: 17px; font-weight: 500; }
+.hcard-rule { font-size: 14px; color: var(--muted); line-height: 1.8; }
+.hcard-rule strong { color: var(--text); font-weight: 500; }
+
+/* SCOREBOARD */
+.scores { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; }
+.scard {
+  background: var(--surface); border: 0.5px solid var(--border);
+  border-radius: 12px; padding: 24px 20px;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+.scard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.scard.sg::before { background: var(--blue); }
+.scard.sb::before { background: var(--amber); }
+.scard.sp::before { background: var(--purple); }
+.scard.sc::before { background: var(--teal); }
+.scard.st::before { background: var(--gray); }
+.s-name { font-size: 12px; font-weight: 500; margin-bottom: 3px; }
+.sg .s-name { color: var(--blue); }
+.sb .s-name { color: var(--amber); }
+.sp .s-name { color: var(--purple); }
+.sc .s-name { color: var(--teal); }
+.st .s-name { color: var(--gray); }
+.s-person { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 16px; line-height: 1.3; }
+.ns-block { border-radius: 8px; padding: 12px 14px; margin-bottom: 16px; }
+.sg .ns-block { background: var(--blue-soft); }
+.sb .ns-block { background: var(--amber-soft); }
+.sp .ns-block { background: var(--purple-soft); }
+.sc .ns-block { background: var(--teal-soft); }
+.st .ns-block { background: var(--gray-soft); }
+.ns-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.7px; color: var(--dim); margin-bottom: 5px; }
+.ns-val { font-size: 15px; font-weight: 500; }
+.sg .ns-val { color: var(--blue); }
+.sb .ns-val { color: var(--amber); }
+.sp .ns-val { color: var(--purple); }
+.sc .ns-val { color: var(--teal); }
+.st .ns-val { color: var(--gray); }
+.pm-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.7px; color: var(--dim); margin-bottom: 8px; }
+.pm { padding: 8px 0; border-top: 0.5px solid var(--border); font-size: 14px; color: var(--text); line-height: 1.4; }
+.pm:first-of-type { border-top: none; }
+
+.coach-bar {
+  margin-top: 14px; background: var(--surface);
+  border: 0.5px solid var(--border2); border-radius: 10px;
+  padding: 16px 24px; display: flex; align-items: center; gap: 16px;
+}
+.coach-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--dim); min-width: 48px; }
+.coach-name { font-size: 18px; font-weight: 500; color: var(--text); }
+.coach-role { font-size: 13px; color: var(--dim); margin-left: 8px; }
+
+/* FOOTER */
+.footer { padding: 72px 0 64px; border-top: 0.5px solid var(--border); }
+.footer-q {
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px; line-height: 1.5;
+  max-width: 640px; margin-bottom: 14px;
+}
+.footer-q em { font-style: italic; color: var(--muted); }
+.footer-note { font-size: 13px; color: var(--dim); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">English Seekho · Team Playbook</div>
+  <div class="nav-links">
+    <a href="#journey">The game</a>
+    <a href="#relay">The relay</a>
+    <a href="#handoffs">Handoffs</a>
+    <a href="#scoreboard">Scoreboard</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg">ES</div>
+    <div class="hero-label">Team Playbook · 2025</div>
+    <h1>This is a<br><em>team game.</em></h1>
+    <p class="hero-body">Every position matters. No position wins alone. The baton has to pass — cleanly, every time. One dropped handoff and the whole machine slows down.</p>
+    <p class="hero-coda">Here's how we play.</p>
+    <div class="tags">
+      <span class="tag">How the business works</span>
+      <span class="tag">What each vertical owns</span>
+      <span class="tag">How we win together</span>
+    </div>
+  </div>
+
+  <!-- JOURNEY -->
+  <div class="section" id="journey">
+    <div class="eyebrow">01 — The game</div>
+    <div class="slide-h">How we make money.</div>
+    <p class="slide-sub">A stranger becomes a paying learner. Every stage has to work — if any one breaks, the whole machine slows down.</p>
+    <div class="buckets">
+      <div class="bucket bg">
+        <div class="b-num">Stage 1</div>
+        <div class="b-title">Awareness &amp; Acquisition</div>
+        <div class="b-desc">A paid ad reaches someone who wants better English. They click, install, sign up. Cost and quality of who comes in is everything here.</div>
+        <span class="b-owner own-g">Growth</span>
+        <div class="b-ns-row">
+          <div class="b-ns-lbl">North star</div>
+          <div class="b-ns-val">CAC</div>
+        </div>
+      </div>
+      <div class="bucket bp">
+        <div class="b-num">Stage 2</div>
+        <div class="b-title">Conversion</div>
+        <div class="b-desc">They sign up and pay for a trial. First rupee earned. Growth's job ends here — the product has to prove itself.</div>
+        <span class="b-owner own-gb">Growth + Business</span>
+        <div class="b-ns-row">
+          <div class="b-ns-lbl">North star</div>
+          <div class="b-ns-val">Signup to trial %</div>
+        </div>
+      </div>
+      <div class="bucket bc">
+        <div class="b-num">Stage 3</div>
+        <div class="b-title">Activation &amp; Engagement</div>
+        <div class="b-desc">Within 24 hours they feel real value. They come back. Learning becomes a daily habit. P1 and DAU are won or lost here.</div>
+        <span class="b-owner own-p">Product + Content</span>
+        <div class="b-ns-row">
+          <div class="b-ns-lbl">North star</div>
+          <div class="b-ns-val">P1 retention · DAU</div>
+        </div>
+      </div>
+      <div class="bucket bb">
+        <div class="b-num">Stage 4</div>
+        <div class="b-title">Retention &amp; Revenue Loop</div>
+        <div class="b-desc">P30 holds. Trial converts to paid. They renew. LTV compounds. We reinvest and grow — only if everything before this worked.</div>
+        <span class="b-owner own-b">Business + Product</span>
+        <div class="b-ns-row">
+          <div class="b-ns-lbl">North star</div>
+          <div class="b-ns-val">LTV / CAC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RELAY -->
+  <div class="section" id="relay">
+    <div class="eyebrow">02 — The relay</div>
+    <div class="slide-h">This is a relay,<br>not a race.</div>
+    <p class="slide-sub">Every vertical's output is another's input. The game only works when information flows.</p>
+    <div class="principle-box">
+      <div class="p-chain">
+        <div class="p-item">
+          <div class="p-verb">Who to bring</div>
+          <div class="p-who" style="color:var(--blue);">Growth's job</div>
+        </div>
+        <div class="p-arrow">→</div>
+        <div class="p-item">
+          <div class="p-verb">Where to take them</div>
+          <div class="p-who" style="color:var(--purple);">Product's job</div>
+        </div>
+        <div class="p-arrow">→</div>
+        <div class="p-item">
+          <div class="p-verb">What to serve there</div>
+          <div class="p-who" style="color:var(--teal);">Content's job</div>
+        </div>
+      </div>
+      <div class="p-note">
+        <strong>Everyone should watch the ads</strong> to know who we're targeting. <strong>Everyone should use the app</strong> to know what users experience. <strong>Everyone should watch the videos</strong> to know what we're serving.
+      </div>
+    </div>
+    <div class="roles-row">
+      <div class="role-card rg">
+        <div class="rc-verb">Growth brings</div>
+        <div class="rc-what">The right users</div>
+        <div class="rc-desc">And shares who they are — what audience, what use case, what the ad promised.</div>
+      </div>
+      <div class="role-card rb">
+        <div class="rc-verb">Business sets</div>
+        <div class="rc-what">The rules</div>
+        <div class="rc-desc">Pricing and trial design shapes every part of the funnel everyone else runs.</div>
+      </div>
+      <div class="role-card rp">
+        <div class="rc-verb">Product directs</div>
+        <div class="rc-what">Where users go</div>
+        <div class="rc-desc">And shares where they're going — which sections have traffic, where the journey leads.</div>
+      </div>
+      <div class="role-card rc">
+        <div class="rc-verb">Content serves</div>
+        <div class="rc-what">What's needed there</div>
+        <div class="rc-desc">Fills sections users are in with quality. Follows the signal — doesn't create it.</div>
+      </div>
+      <div class="role-card rt">
+        <div class="rc-verb">Tech &amp; Analytics</div>
+        <div class="rc-what">The backbone</div>
+        <div class="rc-desc">The app runs on Tech. Every decision runs on data. Both must be right.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HANDOFFS -->
+  <div class="section" id="handoffs">
+    <div class="eyebrow">03 — The handoffs</div>
+    <div class="slide-h">Where the baton passes.</div>
+    <p class="slide-sub">When these break, everyone blames the wrong thing.</p>
+    <div class="handoffs">
+      <div class="hcard">
+        <div class="hcard-head">
+          <span class="hcard-from" style="color:var(--blue);">Growth</span>
+          <span class="hcard-arrow">→</span>
+          <span class="hcard-to" style="color:var(--teal);">Content</span>
+        </div>
+        <div class="hcard-rule">Whatever Growth is selling in the ads — <strong>the content inside the app must deliver on that promise.</strong> If the ad and the content don't match, trust breaks before the habit forms.</div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-head">
+          <span class="hcard-from" style="color:var(--blue);">Growth</span>
+          <span class="hcard-arrow">→</span>
+          <span class="hcard-to" style="color:var(--purple);">Product</span>
+        </div>
+        <div class="hcard-rule">When a new audience is cracked, <strong>that information must reach Product.</strong> The app has to be ready for whoever the ads bring in — a great CPI means nothing if the product isn't built for those users.</div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-head">
+          <span class="hcard-from" style="color:var(--purple);">Product</span>
+          <span class="hcard-arrow">→</span>
+          <span class="hcard-to" style="color:var(--teal);">Content</span>
+        </div>
+        <div class="hcard-rule">Product knows where users are going in the app. <strong>That signal must reach Content.</strong> Content serves where users already are — not where no one visits.</div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-head">
+          <span class="hcard-from" style="color:var(--purple);">Product</span>
+          <span class="hcard-arrow">→</span>
+          <span class="hcard-to" style="color:var(--amber);">Business</span>
+        </div>
+        <div class="hcard-rule">Retention is what builds LTV. <strong>Business can't grow revenue without Product holding P30.</strong> Business sets the pricing — Product makes the experience worth paying for.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCOREBOARD -->
+  <div class="section" id="scoreboard">
+    <div class="eyebrow">04 — The scoreboard</div>
+    <div class="slide-h">What we measure.</div>
+    <p class="slide-sub">Everyone should know all of these — not just their own.</p>
+    <div class="scores">
+      <div class="scard sg">
+        <div class="s-name">Growth</div>
+        <div class="s-person">Simran</div>
+        <div class="ns-block">
+          <div class="ns-lbl">North star</div>
+          <div class="ns-val">CAC</div>
+        </div>
+        <div class="pm-lbl">Primary metrics</div>
+        <div class="pm">CPI</div>
+        <div class="pm">Trial conversion %</div>
+        <div class="pm">Marketing spend</div>
+        <div class="pm">P0 exits</div>
+      </div>
+      <div class="scard sb">
+        <div class="s-name">Business</div>
+        <div class="s-person">Gauri</div>
+        <div class="ns-block">
+          <div class="ns-lbl">North star</div>
+          <div class="ns-val">LTV / CAC</div>
+        </div>
+        <div class="pm-lbl">Primary metrics</div>
+        <div class="pm">Revenue</div>
+        <div class="pm">Trial to paid %</div>
+      </div>
+      <div class="scard sp">
+        <div class="s-name">Product</div>
+        <div class="s-person">Ayush · Gauri</div>
+        <div class="ns-block">
+          <div class="ns-lbl">North star</div>
+          <div class="ns-val">P1 → P30</div>
+        </div>
+        <div class="pm-lbl">Primary metrics</div>
+        <div class="pm">P1 retention</div>
+        <div class="pm">Practice retention</div>
+      </div>
+      <div class="scard sc">
+        <div class="s-name">Content</div>
+        <div class="s-person">Ravisha</div>
+        <div class="ns-block">
+          <div class="ns-lbl">North star</div>
+          <div class="ns-val">DAU</div>
+        </div>
+        <div class="pm-lbl">Primary metrics</div>
+        <div class="pm">Content success rate</div>
+        <div class="pm">Daily supply</div>
+      </div>
+      <div class="scard st">
+        <div class="s-name">Tech &amp; Analytics</div>
+        <div class="s-person">Bansod · Saya</div>
+        <div class="ns-block">
+          <div class="ns-lbl">North star</div>
+          <div class="ns-val">Experiment velocity</div>
+        </div>
+        <div class="pm-lbl">Primary metrics</div>
+        <div class="pm">Timely release</div>
+        <div class="pm">Bug-free rate</div>
+        <div class="pm">Data health</div>
+      </div>
+    </div>
+    <div class="coach-bar">
+      <div class="coach-label">Coach</div>
+      <div class="coach-name">Abhishek Jha</div>
+      <div class="coach-role">Leads the team.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-q">"The scoreboard is LTV/CAC. <em>But the game is played in every lesson completed, every ad that converts, every bug that doesn't ship, and every day a user comes back."</em></div>
+    <div class="footer-note">Every person on this team moves at least one of those numbers.</div>
+  </div>
+
+</div>
+</body>
+</html>
 <!-- placeholder -->
